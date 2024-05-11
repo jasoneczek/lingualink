@@ -14,11 +14,16 @@
 <body>
   <main>
     <article class="grid">
-      <picture class="col-1">
-        <source media="(min-width: 36rem)" srcset="./assets/img/student-desktop.jpg">
-        <img src="./assets/img/student-mobile.jpg"
-          alt="a young woman standing outside against a fence holding a laptop">
-      </picture>
+      <div class="img-container">
+        <picture class="col-1">
+          <source media="(min-width: 36rem)" srcset="./assets/img/student-desktop.jpg">
+          <img src="./assets/img/student-mobile.jpg"
+            alt="a young woman standing outside against a fence holding a laptop">
+        </picture>
+        <p class="photo-attribution">Photo by <a href="https://www.pexels.com/" target="_blank">Andrea Piacquadio</a> on
+          <a href="https://www.pexels.com/@olly/" target="_blank">Pexels</a>
+        </p>
+      </div>
       <div class="article-content flex">
         <div class="article-header">
           <h2 class="article-heading">
@@ -30,6 +35,7 @@
             now!
           </p>
         </div>
+        <!-- Form -->
         <form method="get" id="form" class="form" novalidate>
           <div class="grid">
             <div class="form-group">
@@ -105,6 +111,8 @@
         </form>
       </div>
     </article>
+
+    <!-- Success modal -->
     <div id="successModal" class="modal">
       <div class="modal-content flex">
         <h2 id="modalTitle">Success!</h2>
@@ -115,6 +123,7 @@
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <p>Copyright &copy; 2024</p>
     <a href="https://www.github.com/jasoneczek">jasoneczek</a>
