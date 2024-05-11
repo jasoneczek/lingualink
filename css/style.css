@@ -16,6 +16,21 @@
   font-display: swap;
 }
 
-body {
-  font-family: Manrope;
+:root {
+  /* colors */
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-neutral-med: hsl(220, 25%, 40%);
+  --clr-neutral-dark: hsl(220, 25%, 20%);
+  --clr-primary: hsl(300, 100%, 35%);
+  --clr-grad1: hsl(205, 100%, 75%);
+  --clr-grad2: hsl(160, 100%, 75%);
+  /* typography */
+  --ff-ss: Manrope, sans-serif;
+  --fw-r: 400;
+  --fw-b: 700;
+  --fs-1: 0.75rem;
+  --fs-2: 1rem;
+  --fs-3: 2.5rem;
+  --fs-4: 3.5rem;
+  --fs-fluid: clamp(var(--fs-3), 2vw + 1.75rem, var(--fs-4));
 }
