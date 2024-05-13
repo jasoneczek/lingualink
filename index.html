@@ -13,33 +13,33 @@
 
 <body>
   <main>
-    <article class="grid">
-      <div class="img-container">
-        <picture class="col-1">
+    <article class="article-grid">
+      <div class="img-container ">
+        <picture>
           <source media="(min-width: 36rem)" srcset="./assets/img/student-desktop.jpg">
           <img src="./assets/img/student-mobile.jpg"
-            alt="a young woman standing outside against a fence holding a laptop">
+            alt="a young woman standing outside against a fence holding a laptop" class="article-img">
         </picture>
-        <p class="photo-attribution">Photo by <a href="https://www.pexels.com/" target="_blank">Andrea Piacquadio</a> on
+        <p class="photo-credit">Photo by <a href="https://www.pexels.com/" target="_blank">Andrea Piacquadio</a> on
           <a href="https://www.pexels.com/@olly/" target="_blank">Pexels</a>
         </p>
       </div>
-      <div class="article-content flex">
+      <div class="article-content">
+
         <div class="article-header">
-          <h2 class="article-heading">
-            Your Path to Language Mastery Starts Here!
-          </h2>
+          <h1 class="article-heading">
+            Your Path to Language <span>Mastery</span> Starts Here!
+          </h1>
           <p class="article-lead">
-            Join LinguaLink for personalized online language tutoring. Select your current and target languages, and
-            we'll match you with one of our expert tutors. Interactive lessons and a supportive community await! Sign up
-            now!
+            Select your current and target languages, and
+            we'll match you with one of our expert tutors. Interactive lessons and a supportive community await!
           </p>
         </div>
         <!-- Form -->
         <form method="get" id="form" class="form" novalidate>
-          <div class="grid">
+          <div class="form-grid">
             <div class="form-group">
-              <label for="curr-lang">Current Language</label>
+              <label for="curr-lang" class="label">Current Language</label>
               <select name="curr-lang" id="curr-lang" class="form-select" aria-describedby="error-curr-lang" required>
                 <option value="" selected disabled>I currently speak...</option>
                 <option value="english">English</option>
@@ -53,7 +53,7 @@
               <span id="error-curr-lang" class="error" role="alert"></span>
             </div>
             <div class="form-group">
-              <label for="targ-lang">Target Language</label>
+              <label for="targ-lang" class="label">Target Language</label>
               <select name="targ-lang" id="targ-lang" class="form-select" aria-describedby="error-targ-lang" required>
                 <option value="" selected disabled>I want to speak...</option>
                 <option value="english">English</option>
@@ -67,38 +67,38 @@
               <span id="error-targ-lang" class="error" role="alert"></span>
             </div>
             <div class="form-group">
-              <label for="fname">First Name</label>
+              <label for="fname" class="label">First Name</label>
               <input type="text" id="fname" name="fname" class="form-input" aria-describedby="error-fname"
                 autocomplete="given-name" required>
               <span id="error-fname" class="error" role="alert"></span>
             </div>
             <div class="form-group">
-              <label for="lname">Last Name</label>
+              <label for="lname" class="label">Last Name</label>
               <input type="text" id="lname" name="lname" class="form-input" aria-describedby="error-lname"
                 autocomplete="family-name" required>
               <span id="error-lname" class="error" role="alert"></span>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
+              <label for="email" class="label">Email</label>
               <input type="email" id="email" name="email" class="form-input" aria-describedby="error-email"
                 autocomplete="email" required>
               <span id="error-email" class="error" role="alert"></span>
             </div>
             <div class="form-group">
-              <label for="tel">Phone Number (optional)</label>
+              <label for="tel" class="label">Phone Number (optional)</label>
               <span id="tel-hint" class="field-hint"></span>
               <input type="text" id="tel" name="tel" class="form-input" aria-describedby="tel-hint error-tel"
                 autocomplete="tel">
               <span id="error-tel" class="error" role="alert"></span>
             </div>
             <div class="form-group">
-              <label for="pwd">Password</label>
+              <label for="pwd" class="label">Password</label>
               <input type="password" id="pwd" name="pwd" class="form-input" aria-describedby="error-pwd"
                 autocomplete="new-password" required>
               <span id="error-pwd" class="error" role="alert" required></span>
             </div>
             <div class="form-group">
-              <label for="confirm-pwd">Confirm Password</label>
+              <label for="confirm-pwd" class="label">Confirm Password</label>
               <input type="password" id="confirm-pwd" name="confirm-pwd" class="form-input"
                 aria-describedby="error-confirm-pwd" required>
               <span id="error-confirm-pwd" class="error" role="alert"></span>
@@ -106,14 +106,14 @@
           </div>
           <div class="form-group-btn">
             <button type="submit" class="btn">Create Account</button>
-            <p>Already have an account? <a href="#">Log in</a></p>
+            <p class="have-acct">Already have an account? <a href="#">Log in</a></p>
           </div>
         </form>
       </div>
     </article>
 
     <!-- Success modal -->
-    <div id="successModal" class="modal">
+    <div id="successModal" class="modal hidden">
       <div class="modal-content flex">
         <h2 id="modalTitle">Success!</h2>
         <p class="modal-para">Congratulations! Your account has been successfully created</p>
