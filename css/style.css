@@ -269,6 +269,9 @@ body {
   background-color: var(--clr-white);
   min-height: 100svh;
   max-width: 31.5rem;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .modal-content {
@@ -286,11 +289,16 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.modal-para-lang {
+.modal-lang-choice {
   margin-bottom: 2.5rem;
 }
 
-@media (min-width: 36rem) {
+.modal-lang {
+  font-weight: var(--fw-b);
+  color: var(--clr-neutral-dark);
+}
+
+@media (min-width: 48rem) {
   .article-grid {
     display: grid;
     grid-template-columns: auto 1fr;
