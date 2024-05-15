@@ -112,6 +112,7 @@ body {
 }
 
 .article-grid {
+  display: grid;
   background-color: var(--clr-white);
   max-width: 80rem;
 }
@@ -300,7 +301,6 @@ body {
 
 @media (min-width: 48rem) {
   .article-grid {
-    display: grid;
     grid-template-columns: auto 1fr;
     border-radius: 0.6125rem;
     overflow: hidden;
@@ -324,6 +324,10 @@ body {
 
   .article-heading {
     margin-bottom: 2.5rem;
+  }
+
+  .article-lead {
+    font-size: 1.125rem;
   }
 
   .form-grid {
