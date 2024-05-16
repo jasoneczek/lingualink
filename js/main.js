@@ -7,6 +7,9 @@ const currLang = document.getElementById('curr-lang');
 const targLang = document.getElementById('targ-lang');
 const fName = document.getElementById('fname');
 const lName = document.getElementById('lname');
+const email = document.getElementById('email');
+const pwd = document.getElementById('pwd');
+const confirmPwd = document.getElementById('confirm-pwd');
 const inputs = document.querySelectorAll('input');
 const selects = document.querySelectorAll('select');
 
@@ -20,6 +23,10 @@ const currLangErr = document.getElementById('error-curr-lang');
 const targLangErr = document.getElementById('error-targ-lang');
 const firstNameErr = document.getElementById('error-fname');
 const lastNameErr = document.getElementById('error-lname');
+const emailErr = document.getElementById('error-email');
+const pwdErr = document.getElementById('error-pwd');
+const pwdErrReq = document.getElementById('pwd-err-req');
+const confPwdErr = document.getElementById('error-confirm-pwd');
 
 const handleSubmit = e => {
   e.preventDefault();
@@ -29,13 +36,17 @@ const handleSubmit = e => {
   const areDifferentLanguages = validateDifferentLanguages();
   const isValidFirstName = validateFirstName();
   const isValidLastName = validateLastName();
+  const isValidEmail = validateEmail();
+  const isValidPwd = validatePassword();
 
   if (
     isCurrLangValid &&
     isTargLangValid &&
     areDifferentLanguages &&
     isValidFirstName &&
-    isValidLastName
+    isValidLastName &&
+    isValidEmail &&
+    isValidPwd
   ) {
     article.classList.add('hidden');
     modal.style.display = 'flex';
@@ -43,8 +54,6 @@ const handleSubmit = e => {
     displayLangSelects();
   }
 };
-
-// Input validations
 
 // Validate user's native language
 const validateCurrentLanguage = () => {
@@ -116,6 +125,49 @@ const validateLastName = () => {
   return true;
 };
 
+// Validate email
+const validateEmail = () => {
+  const emailAddress = email.value.trim();
+  const emailRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  if (!emailRegex.test(emailAddress)) {
+    emailErr.textContent = 'Please enter valid email.';
+    email.classList.add('input-error');
+    return false;
+  }
+  emailErr.textContent = '';
+  email.classList.remove('input-error');
+  return true;
+};
+
+const validatePassword = () => {
+  const password = pwd.value.trim();
+  const confirmPassword = confirmPwd.value.trim();
+  const pwdRegex =
+    /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,30}$/;
+
+  if (!pwdRegex.test(password)) {
+    pwdErr.textContent = 'Invalid password.';
+    pwdErrReq.textContent =
+      'Password must be 8 to 30 characters long and include at least one letter, one number, and one special character.';
+    pwd.classList.add('input-error');
+    return false;
+  }
+  if (password !== confirmPassword) {
+    confPwdErr.textContent = 'Passwords do not match.';
+    confirmPwd.classList.add('input-error');
+    return false;
+  }
+
+  pwdErr.textContent = '';
+  pwdErrReq.textContent = '';
+  confPwdErr.textContent = '';
+  pwd.classList.remove('input-error');
+  confirmPwd.classList.remove('input-error');
+  return true;
+};
+
 // Confirm user's language selections in the modal success message
 const displayLangSelects = () => {
   const curr = currLang.value;
@@ -144,14 +196,17 @@ function clearInputs() {
 
 // Clear error messages and styles when user re-enters data
 const handleInputChange = input => {
-  const errorId = input.getAttribute('aria-describedby');
-  const errorElement = document.getElementById(errorId);
+  const errorIds = input.getAttribute('aria-describedby').split(' ');
+
+  errorIds.forEach(errorId => {
+    const errorElement = document.getElementById(errorId);
+    if (errorElement) {
+      errorElement.textContent = '';
+    }
+  });
 
   if (input.classList.contains('input-error')) {
     input.classList.remove('input-error');
-  }
-  if (errorElement) {
-    errorElement.textContent = '';
   }
 };
 
