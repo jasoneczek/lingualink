@@ -16,16 +16,18 @@
     <article class="article-grid">
       <div class="img-container ">
         <picture>
-          <source media="(min-width: 48rem)" srcset="./assets/img/student-desktop.jpg">
+          <source media="(min-width: 62rem)" srcset="./assets/img/student-desktop.jpg">
           <img src="./assets/img/student-mobile.jpg"
             alt="a young woman standing outside against a fence holding a laptop" class="article-img">
         </picture>
+        <a href="https://www.github.com/jasoneczek" target="_blank" class="github"><i
+            class="fab fa-github fa-2x"></i></a>
         <p class="photo-credit">Photo by <a href="https://www.pexels.com/" target="_blank">Andrea Piacquadio</a> on
           <a href="https://www.pexels.com/@olly/" target="_blank">Pexels</a>
         </p>
       </div>
-      <div class="article-content">
 
+      <div class="article-content">
         <div class="article-header">
           <h1 class="article-heading">
             Your Path to Language <span>Mastery</span> Starts Here!
@@ -107,8 +109,9 @@
                 <label for="pwd" class="label">Password</label>
                 <span id="error-pwd" class="label-error" role="alert" required></span>
               </div>
-              <input type="password" id="pwd" name="pwd" class="form-input" aria-describedby="error-pwd"
+              <input type="password" id="pwd" name="pwd" class="form-input" aria-describedby="error-pwd  pwd-err-req"
                 autocomplete="new-password" required>
+              <span id="pwd-err-req" class="pwd-err-req" role="alert"></span>
             </div>
             <div class="form-group">
               <div class="form-label">
@@ -137,13 +140,6 @@
       </div>
     </div>
   </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>Copyright &copy; 2024</p>
-    <a href="https://www.github.com/jasoneczek"><i class="fab fa-github"></i> jasoneczek</a>
-
-  </footer>
 
   <script src="js/main.js"></script>
 </body>
