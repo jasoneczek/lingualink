@@ -8,6 +8,7 @@ const targLang = document.getElementById('targ-lang');
 const fName = document.getElementById('fname');
 const lName = document.getElementById('lname');
 const email = document.getElementById('email');
+const phone = document.getElementById('phone');
 const pwd = document.getElementById('pwd');
 const confirmPwd = document.getElementById('confirm-pwd');
 const inputs = document.querySelectorAll('input');
@@ -24,6 +25,7 @@ const targLangErr = document.getElementById('error-targ-lang');
 const firstNameErr = document.getElementById('error-fname');
 const lastNameErr = document.getElementById('error-lname');
 const emailErr = document.getElementById('error-email');
+const telErr = document.getElementById('error-tel');
 const pwdErr = document.getElementById('error-pwd');
 const pwdErrReq = document.getElementById('pwd-err-req');
 const confPwdErr = document.getElementById('error-confirm-pwd');
@@ -37,6 +39,7 @@ const handleSubmit = e => {
   const isValidFirstName = validateFirstName();
   const isValidLastName = validateLastName();
   const isValidEmail = validateEmail();
+  const isValidPhoneNumber = validatePhoneNumber();
   const isValidPwd = validatePassword();
 
   if (
@@ -46,6 +49,7 @@ const handleSubmit = e => {
     isValidFirstName &&
     isValidLastName &&
     isValidEmail &&
+    isValidPhoneNumber &&
     isValidPwd
   ) {
     article.classList.add('hidden');
@@ -64,6 +68,7 @@ const validateCurrentLanguage = () => {
     currLang.classList.add('input-error');
     return false;
   }
+
   currLangErr.textContent = '';
   return true;
 };
@@ -141,6 +146,29 @@ const validateEmail = () => {
   return true;
 };
 
+// Validate phone number
+const validatePhoneNumber = () => {
+  const phoneNumber = phone.value.trim();
+  const phoneNumberRegex = /^\+?[0-9]{1,3}\s?[0-9]{6,14}$/;
+
+  if (!phoneNumber) {
+    telErr.textContent = '';
+    phone.classList.remove('input-error');
+    return true;
+  }
+
+  if (!phoneNumberRegex.test(phoneNumber)) {
+    telErr.textContent = 'Invalid phone number.';
+    phone.classList.add('input-error');
+    return false;
+  }
+
+  telErr.textContent = '';
+  phone.classList.remove('input-error');
+  return true;
+};
+
+// Validate password
 const validatePassword = () => {
   const password = pwd.value.trim();
   const confirmPassword = confirmPwd.value.trim();
